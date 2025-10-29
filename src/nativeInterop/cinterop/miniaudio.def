@@ -1,0 +1,4 @@
+headers = miniaudio.h
+package = miniaudio
+compilerOpts =  -I/usr/include -I./deps/miniaudio
+linkerOpts = -lminiaudio -L./deps/miniaudio/build -lpthread -lm
