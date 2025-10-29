@@ -6,9 +6,33 @@
 [DISCLAIMER]: This is a project for _learning_ Kotlin Native cinterop capabilities, _Kotlin_ in general and the gradle build system.
 This project is not intended for production use
 
+
+## Dependencies:
+- Miniaudio C needs to be build into a lib for your target platform.
+
+```
+git submodule update --init --recursive
+cd deps/miniaudio
+mkdir build
+gcc -O2 -c -fPIC miniaudio.c -o build/miniaudio.o
+ar rcs build/libminiaudio.a build/miniaudio.o
+```
+
+## Building the project
+To build the project, simply run:
+
+```bash
+./gradlew build
+```
+## Running the project
+To run the project, use:
+```bash
+./gradlew run
+```
+
 ## TODO's
 
-- [x] Tested and working on :linux:
+- [x] Tested and working on :penguin:
 - [x] Setup gradle cinterop with miniaudio library
 - [x] Play a simple audio file (wav, mp3, etc)
 - [ ] Record audio from microphone
@@ -20,3 +44,4 @@ This project is not intended for production use
 
 - [ ] Test on macOS :apple:
 - [ ] Test on Windows :windows:
+

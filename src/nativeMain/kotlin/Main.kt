@@ -10,7 +10,7 @@ fun main() = memScoped {
 
     val fileName = "sound.wav"
     if (!FileSystem.SYSTEM.exists(fileName.toPath())) {
-        println("File not found: $filePath")
+        println("File not found: $fileName")
         return@memScoped
     }
 
@@ -22,7 +22,7 @@ fun main() = memScoped {
         return@memScoped
     }
 
-    ma_engine_play_sound(engine.ptr, filePath, null)
+    ma_engine_play_sound(engine.ptr, fileName, null)
     println("Press Enter to quit...")
     getchar()
     ma_engine_uninit(engine.ptr)
